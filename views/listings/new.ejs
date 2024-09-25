@@ -1,0 +1,54 @@
+   <!-- To use the layout with content(code) changes for every ejs template, we have to write:-  -->
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-2">
+  <div class="col-8 offset-2">   <!--offset 2 seh middle mai form aa jaaye gya -->
+    
+    <h3>Create a New Listing</h3>
+    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data"> 
+     <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input placeholder="Enter title" name="listing[title]" type="text" class="form-control" id="title" required>   
+        <div class="valid-feedback">Title looks good</div>  <!--Success message-->
+        <div class="invalid-feedback">Please Enter the Title</div>
+     </div>   
+        <!-- Humne "name" attribute mai listing object bnnayi and title,price etc. keys bnne gyi-->
+     <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" id="description" required></textarea>
+        <div class="invalid-feedback">Please Enter a short Description</div>
+     </div>
+
+     <div class="mb-3">
+        <label for="image" class="form-label">Upload Listing Image</label>
+        <input name="listing[image]" type="file" class="form-control" id="image">
+     </div>
+
+    <div class="row">  <!--Price and country ek hii line mai display ho taaki -->
+
+      <div class="mb-3 col-md-4">
+        <label for="price" class="form-label">Price</label>
+        <input placeholder="Enter price" name="listing[price]"  class="form-control" id="price" required>
+        <div class="invalid-feedback">Price should be Valid</div>
+       </div>
+
+      <div class="mb-3 col-md-8">
+        <label for="country" class="form-label">Country</label>
+        <input placeholder="Enter Country" name="listing[country]" type="text" class="form-control" id="country" required>
+        <div class="invalid-feedback">Country name should be Valid</div>
+      </div>
+
+    </div>   
+
+    <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input placeholder="Enter Location" name="listing[location]" type="text" class="form-control" id="location" required>  
+        <div class="invalid-feedback">Location should be Valid</div>
+    </div>   
+
+    
+    <button class="btn btn-dark add-btn mt-3">Add</button>
+    
+    </form>
+  </div>  
+</div>
